@@ -1,0 +1,11 @@
+使用 ddddocr 时遇到报错：
+    image = image.resize((int(image.size[0] * (64 / image.size[1])), 64), Image.ANTIALIAS).convert('L')
+                                                                          ^^^^^^^^^^^^^^^
+AttributeError: module 'PIL.Image' has no attribute 'ANTIALIAS'
+
+绕过方案：
+在程序启动文件的开头，添加如下语句：
+
+import ddddocr
+import PIL
+PIL.Image.ANTIALIAS = PIL.Image.LANCZOS
